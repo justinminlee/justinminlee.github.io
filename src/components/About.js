@@ -9,8 +9,7 @@ function About() {
         I'm a final year data science student at QUT
       </p>
       <p>
-        My goal is to help organizations make data-driven decisions and uncover 
-        valuable insights from complex datasets.
+        I'm looking forward to sharing my passion for data analysis with others.
       </p>
     </section>
   );
