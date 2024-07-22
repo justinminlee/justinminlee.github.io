@@ -5,21 +5,30 @@ import '../styles/Projects.css';
 const projectsData = [
   {
     title: "AI flashcard web app",
-    description: "Flash card web app with AI generator",
+    description: "Develpoed flash card web app with AI generator",
     technologies: ["Reactjs", "Express", "API"],
-    image: "https://via.placeholder.com/300x200"
+    image: "https://via.placeholder.com/300x200",
+    githubUrl: "https://github.com/justinminlee/flashcards"
   },
   {
     title: "Data Cleansing",
     description: "Data cleansing project with Mysql",
     technologies: ["Mysql", "Data cleaning"],
-    image: "https://via.placeholder.com/300x200"
+    image: "/mysql.png",
+    githubUrl: "https://github.com/justinminlee/mysql_project"
   },
   {
     title: "Stock Market Prediction",
-    description: "Stock Market Prediction with ML",
-    technologies: ["Python", "ML", "Algorithm"],
-    image: "https://via.placeholder.com/300x200"
+    description: "Stock Market Prediction with Random Forest Algorithm",
+    technologies: ["Python", "Machine Learning", "Data Analysis"],
+    image: "/market_prediction.png",
+    githubUrl: "https://github.com/justinminlee/stockmarket_prediction_project"
+  },
+  {
+    title: "Data analysis/visualisation with Occupation data(On going prototype)",
+    description: "Data analysis with Occupation data on Tableau",
+    technologies: ["Mysql", "Tableau", "Data Analysis", "Data Visualisation"],
+    image: "/tableau.png"
   }
 ];
 

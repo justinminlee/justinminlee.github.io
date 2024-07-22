@@ -2,11 +2,11 @@ import React from 'react';
 import '../styles/Skills.css';
 
 const skillsData = [
-  { category: "Programming Languages", skills: ["Python", "R", "SQL"] },
+  { category: "Programming Languages", skills: ["Python", "C#", "Javascript", "React.js", "Node.js"] },
   { category: "Data Analysis", skills: ["Pandas", "NumPy", "SciPy"] },
   { category: "Machine Learning", skills: ["Scikit-learn", "TensorFlow", "Keras"] },
-  { category: "Data Visualization", skills: ["Matplotlib", "Seaborn", "Tableau", "Power BI"] },
-  { category: "Big Data", skills: ["Spark", "Hadoop"] },
+  { category: "Data Visualization", skills: ["Python", "R", "Matlab", "Tableau"] },
+  { category: "Database", skills: ["Mysql", "Sqlite", "MongoDB", "MsSql"] },
   { category: "Version Control", skills: ["Git", "GitHub"] }
 ];
 
