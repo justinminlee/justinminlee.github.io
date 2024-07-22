@@ -5,20 +5,20 @@ import '../styles/Projects.css';
 const projectsData = [
   {
     title: "AI flashcard web app",
-    description: "...",
-    technologies: ["...", "...", "...", "..."],
+    description: "Flash card web app with AI generator",
+    technologies: ["Reactjs", "Express", "API"],
     image: "https://via.placeholder.com/300x200"
   },
   {
-    title: "...",
-    description: "...",
-    technologies: ["...", "...", "..."],
+    title: "Data Cleansing",
+    description: "Data cleansing project with Mysql",
+    technologies: ["Mysql", "Data cleaning"],
     image: "https://via.placeholder.com/300x200"
   },
   {
-    title: "...",
-    description: "...",
-    technologies: ["...", "...", "..."],
+    title: "Stock Market Prediction",
+    description: "Stock Market Prediction with ML",
+    technologies: ["Python", "ML", "Algorithm"],
     image: "https://via.placeholder.com/300x200"
   }
 ];
