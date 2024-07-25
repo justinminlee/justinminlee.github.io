@@ -28,7 +28,8 @@ const projectsData = [
     title: "Data analysis/visualisation with Occupation data(On going prototype)",
     description: "Data analysis with Occupation data on Tableau",
     technologies: ["Mysql", "Tableau", "Data Analysis", "Data Visualisation"],
-    image: "/tableau.png"
+    image: "/tableau.png",
+    githubUrl: "https://github.com/justinminlee"
   }
 ];
 
