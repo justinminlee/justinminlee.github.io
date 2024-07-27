@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import '/Users/justinlee/Desktop/github_page/justinminlee.github.io/src/styles/Contact.css'; // Assuming you have a CSS file for styling
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ function Contact() {
   });
 
   const [status, setStatus] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,10 +18,23 @@ function Contact() {
       ...formData,
       [name]: value
     });
+
+    if (name === 'email') {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(value)) {
+        setEmailError('Please enter a valid email address.');
+      } else {
+        setEmailError('');
+      }
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (emailError) {
+      setStatus('Please fix the errors in the form.');
+      return;
+    }
     emailjs.sendForm('service_jsbkozr', 'template_kld2lra', e.target, 'b43g1J6eHHPOfpPmmq71S')
       .then((result) => {
         setStatus('Form submitted successfully!');
@@ -33,7 +48,7 @@ function Contact() {
     <section id="contact" className="contact">
       <h2>Contact Me</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -44,7 +59,7 @@ function Contact() {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -53,9 +68,11 @@ function Contact() {
             value={formData.email}
             onChange={handleChange}
             required
+            className={emailError ? 'error' : ''}
           />
+          {emailError && <p className="error-message">{emailError}</p>}
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
