@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Contact.css';
+import emailjs from 'emailjs-com';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -8,14 +8,25 @@ function Contact() {
     message: ''
   });
 
+  const [status, setStatus] = useState('');
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to a server
+    emailjs.sendForm('service_jsbkozr', 'template_kld2lra', e.target, 'b43g1J6eHHPOfpPmmq71S')
+      .then((result) => {
+        setStatus('Form submitted successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      }, (error) => {
+        setStatus('There was an error submitting the form.');
+      });
   };
 
   return (
@@ -52,10 +63,11 @@ function Contact() {
             value={formData.message}
             onChange={handleChange}
             required
-          ></textarea>
+          />
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit">Submit</button>
       </form>
+      {status && <p>{status}</p>}
     </section>
   );
 }
