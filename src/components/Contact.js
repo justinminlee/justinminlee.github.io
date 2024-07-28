@@ -35,12 +35,19 @@ function Contact() {
       setStatus('Please fix the errors in the form.');
       return;
     }
-    emailjs.sendForm('service_jsbkozr', 'template_kld2lra', e.target, 'b43g1J6eHHPOfpPmmq71S')
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID, 
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID, 
+      e.target, 
+      process.env.REACT_APP_EMAILJS_USER_ID
+    )
       .then((result) => {
         setStatus('Form submitted successfully!');
         setFormData({ name: '', email: '', message: '' });
+        console.log(result.text);
       }, (error) => {
         setStatus('There was an error submitting the form.');
+        console.log(error.text);
       });
   };
 
