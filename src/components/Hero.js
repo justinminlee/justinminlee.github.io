@@ -11,7 +11,7 @@ function Hero() {
     <section className="hero">
       <h1>Justin Lee</h1>
       <h2>Data science student at QUT</h2>
-      <p>...</p>
+      <p>Eager to contribute data science skills to an organisations</p>
       <button className="cta-button" onClick={navigateToProjects}>View Projects</button>
     </section>
   );
