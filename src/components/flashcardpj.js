@@ -2,7 +2,7 @@ import React from 'react';
 
 function flashcardpj() {
   return (
-    <section id="projectdetail" className="projectdetail">
+    <section id="flashcardpj" className="flashcardpj">
       <h2>About Me</h2>
       <p>
         I'm a final year data science student at QUT who loves coding
