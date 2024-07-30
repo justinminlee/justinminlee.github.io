@@ -6,7 +6,7 @@ function About() {
     <section id="about" className="about">
       <h2>About Me</h2>
       <p>
-        I'm a final year data science student at QUT
+        I'm a final year data science student at QUT who loves coding
       </p>
       <p>
         Currently I am looking for a junior data scientist/analyst job.
