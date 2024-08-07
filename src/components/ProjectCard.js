@@ -23,4 +23,5 @@ function ProjectCard({ title, description, technologies, image, githubUrl }) {
   );
 }
 
+
 export default ProjectCard;
