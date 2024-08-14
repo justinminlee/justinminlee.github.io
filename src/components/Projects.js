@@ -29,7 +29,14 @@ const projectsData = [
     description: "Data analysis with Occupation data on Tableau",
     technologies: ["Mysql", "Tableau", "Data Analysis", "Data Visualisation"],
     image: "/tableau.png",
-    githubUrl: "https://github.com/justinminlee"
+    githubUrl: ""
+  },
+  {
+    title: "Automated Machine Learning Web Application",
+    description: "Python Streamlit automated machine learning web application",
+    technologies: ["Python", "Streamlit", "Machine Learning"],
+    image: "/Auto_ML.png",
+    githubUrl: "https://github.com/justinminlee/ML_webapp"
   }
 ];
 
