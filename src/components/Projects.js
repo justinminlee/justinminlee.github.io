@@ -13,7 +13,7 @@ const projectsData = [
   {
     title: "Data Cleansing",
     description: "Data cleansing project with Mysql",
-    technologies: ["Mysql", "Data cleaning"],
+    technologies: ["Mysql", "Data Cleaning"],
     image: "/mysql.png",
     githubUrl: "https://github.com/justinminlee/mysql_project"
   },
@@ -27,7 +27,7 @@ const projectsData = [
   {
     title: "Data analysis/visualisation with Occupation data(On going prototype)",
     description: "Data analysis with Occupation data on Tableau",
-    technologies: ["Mysql", "Tableau", "Data Analysis", "Data Visualisation"],
+    technologies: ["Mysql", "Tableau", "Data Analysis", "Data Visualisation", "Data Cleaning"],
     image: "/tableau.png",
     githubUrl: ""
   },
