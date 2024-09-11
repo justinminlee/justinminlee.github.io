@@ -4,11 +4,18 @@ import '../styles/Projects.css';
 
 const projectsData = [
   {
-    title: "AI flashcard web app",
+    title: "AI Flashcard Web App",
     description: "Develpoed flash card web app with AI generator",
     technologies: ["Reactjs", "Express", "API"],
-    image: "https://via.placeholder.com/300x200",
+    image: "/flashcard.png",
     githubUrl: "https://github.com/justinminlee/flashcards"
+  },
+  {
+    title: "Recipe Search Web App",
+    description: "Python Streamlit automated machine learning web application",
+    technologies: ["Javascript", "API", "EJS", "Express", "Docker", "AWS"],
+    image: "/recipe_project.png",
+    githubUrl: "https://github.com/justinminlee/CAB432_mashup-docker"
   },
   {
     title: "Data Cleansing",
