@@ -6,10 +6,10 @@ function About() {
     <section id="about" className="about">
       <h2>About Me</h2>
       <p>
-        I'm a final year data science student at QUT who loves coding
+        I'm a Data Science Graduate from QUT with a passion for Data Analysis and, Machine Learning.
       </p>
       <p>
-        Currently I am looking for a junior data scientist/analyst or software dev/eng position.
+        Currently I am looking for a Junior Data analyst position.
       </p>
     </section>
   );
