@@ -9,7 +9,7 @@ function About() {
         I'm a Data Science Graduate from QUT with a passion for Data Analysis and, Machine Learning.
       </p>
       <p>
-        Currently I am looking for a Junior Data analyst position.
+        Currently I am looking for a Junior Data Analyst position.
       </p>
     </section>
   );
