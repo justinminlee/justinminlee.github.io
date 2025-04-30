@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Justin Lee | Portfolio</title>
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-modern-buttons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const successPopup = document.getElementById('success-popup');
+  const errorPopup = document.getElementById('error-popup');
+  const loadingPopup = document.getElementById('loading-popup');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // prevent default submit
+
+    // Show loading
+    loadingPopup.style.display = "block";
+    successPopup.style.display = "none";
+    errorPopup.style.display = "none";
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      loadingPopup.style.display = "none";
+      if (response.ok) {
+        form.reset();
+        successPopup.style.display = "block";
+        setTimeout(() => successPopup.style.display = "none", 4000);
+      } else {
+        errorPopup.style.display = "block";
+        setTimeout(() => errorPopup.style.display = "none", 4000);
+      }
+    }).catch(() => {
+      loadingPopup.style.display = "none";
+      errorPopup.style.display = "block";
+      setTimeout(() => errorPopup.style.display = "none", 4000);
+    });
+  });
+</script>
+
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Justin Lee</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span> 
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header id="home" class="hero-section text-center d-flex align-items-center position-relative" style="background-color: #C2EBEF;">
+  <div id="particles-js"></div>
+  <div class="container position-relative z-1">
+    <h1 class="display-4">Hi, I'm Justin Lee</h1>
+    <p class="lead">Data Analyst | Data Scientist | Data Engineer</p>
+    <div class="social-icons mt-3">
+      <a href="https://github.com/justinminlee" target="_blank"><i class="bi bi-github"></i></a>
+      <a href="https://linkedin.com/in/justin-lee-a15013276" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <a href="https://instagram.com/yourusername" target="_blank"><i class="bi bi-instagram"></i></a>
+    </div>
+    <a href="#contact" class="btn btn-outline-dark mt-4 scroll-btn contact-btn">Contact Me ↓</a>
+  </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">About Me</h2>
+    <p>I am a Data Science graduate from Queensland University of Technology (QUT), specialising in data analysis, machine learning, and impactful data visualisation. I create data-driven solutions that drive business insights and innovation.</p>
+
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <h4>Skills</h4>
+        <ul>
+          <li>Python, SQL, Tableau, R, MATLAB, C#</li>
+          <li>APIs, AWS, Azure, Databricks</li>
+          <li>Flask, Node.js, Express.js, React.js</li>
+          <li>MongoDB, MySQL, PostgreSQL, MS SQL Server</li>
+          <li>Power BI, Docker</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <h4>Awards & Achievements</h4>
+        <ul>
+          <li>🏆 <a href="https://drive.google.com/file/d/1OfWG4zmc3oQaF-GUT9IAK4CpOxoK05Eq/view?usp=drive_link">Best Community Project - 2024 Hackathon</a><a href="https://github.com/justinminlee/flashcards">   (AI Flashcard App)</a></li>
+          <li>🤝 <a href="https://drive.google.com/file/d/1_hCt-3wxoa9n_OEzQZPPudF4KeMMVcLr/view?usp=drive_link">Volunteer - QLD AI Summit 2024</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Buttons -->
+<section id="projects" class="bg-light py-5">
+  <div class="container">
+    <h2 class="mb-4">Featured Projects</h2>
+
+    <div class="text-center mb-4" id="project-filters">
+      <button class="btn filter-btn active" data-filter="all">All</button>
+      <button class="btn filter-btn" data-filter="machine-learning">Machine Learning</button>
+      <button class="btn filter-btn" data-filter="blockchain">Blockchain</button>
+      <button class="btn filter-btn" data-filter="data-visualization">Data Visualisation</button>
+      <button class="btn filter-btn" data-filter="data-cleansing">Data Cleansing</button>
+      <button class="btn filter-btn" data-filter="api">API</button>
+      <button class="btn filter-btn" data-filter="cloud-computing">Cloud Computing</button>
+      <button class="btn filter-btn" data-filter="coding">Coding</button>
+      <button class="btn filter-btn" data-filter="web-scraping">Web Scraping</button>
+    </div>    
+
+    <div class="row g-4">
+      <div class="col-md-4 project-item" data-category="machine-learning coding">
+        <div class="card h-100">
+          <img src="img/Auto_ML.png" class="card-img-top" alt="AutoML Streamlit Web App">
+          <div class="card-body">
+            <h5 class="card-title">AutoML Web Application</h5>
+            <p class="card-text">Trained machine learning models using Streamlit and PyCaret with no-code UI.</p>
+            <a href="projects/automl.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="blockchain coding">
+        <div class="card h-100">
+          <img src="img/blockchain.png" class="card-img-top" alt="Blockchain ETL Pipeline">
+          <div class="card-body">
+            <h5 class="card-title">Blockchain ETL</h5>
+            <p class="card-text">Extracted and transformed crypto transaction data to PostgreSQL using the Bitquery API.</p>    
+            <a href="projects/blockchain_etl.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="machine-learning coding">
+        <div class="card h-100">
+          <img src="img/flashcard.png" class="card-img-top" alt="AI Flashcard Generator App">
+          <div class="card-body">
+            <h5 class="card-title">AI Flashcard Generator</h5>
+            <p class="card-text">Full-stack AI-powered flashcard app built with React.js, Node.js, MySQL, and OpenAI API.</p>
+            <a href="projects/flashcard.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="machine-learning coding">
+        <div class="card h-100">
+          <img src="img/market_prediction.png" class="card-img-top" alt="Stock Market Movement Classifier">
+          <div class="card-body">
+            <h5 class="card-title">Stock Market Prediction</h5>
+            <p class="card-text">Predicted S&P 500 up/down direction using Random Forest and engineered trend features.</p>
+            <a href="projects/stock_prediction.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding data-cleansing">
+        <div class="card h-100">
+          <img src="img/mysql.png" class="card-img-top" alt="Layoff Data Cleaning in SQL">
+          <div class="card-body">
+            <h5 class="card-title">Layoff Data Cleansing</h5>
+            <p class="card-text">Cleaned global layoff data using MySQL with deduplication, standardisation, and null handling.</p>
+            <a href="projects/layoff_cleaning.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding data-cleansing">
+        <div class="card h-100">
+          <img src="img/mongodb.png" class="card-img-top" alt="MongoDB JSON Transformation Project">
+          <div class="card-body">
+            <h5 class="card-title">MongoDB Project</h5>
+            <p class="card-text">Transformed and cleaned raw JSON datasets for ingestion into MongoDB collections.</p>
+            <a href="projects/mongodb_proj.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding api cloud-computing">
+        <div class="card h-100">
+          <img src="img/recipe_project.png" class="card-img-top" alt="Recipe + YouTube Search App">
+          <div class="card-body">
+            <h5 class="card-title">Recipe Search Web App</h5>
+            <p class="card-text">Searched recipes via Spoonacular API and fetched cooking videos using YouTube Data API.</p>
+            <a href="projects/recipe_webapp.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding web-scraping">
+        <div class="card h-100">
+          <img src="img/Scraper.png" class="card-img-top" alt="University Admission Scraper">
+          <div class="card-body">
+            <h5 class="card-title">University Scraper</h5>
+            <p class="card-text">Python scraper for extracting ATAR, degree names, and requirements from UniSC websites.</p>
+            <a href="projects/uni_scraper.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding data-cleansing data-visualization">
+        <div class="card h-100">
+          <img src="img/tableau.png" class="card-img-top" alt="Occupation Dashboard">
+          <div class="card-body">
+            <h5 class="card-title">Australia Occupation Analysis</h5>
+            <p class="card-text">Cleaned Australia occupation data and created interactive insights using MySQL and Tableau.</p>
+            <a href="projects/occupation_analysis.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding api cloud-computing">
+        <div class="card h-100">
+          <img src="img/cloud_project.png" class="card-img-top" alt="AWS Docker Redis File Compressor">
+          <div class="card-body">
+            <h5 class="card-title">Cloud Hosting Project</h5>
+            <p class="card-text">File compressor app built with Docker, Redis, and deployed on AWS.</p>
+            <a href="projects/cloud_project.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+
+      <div class="col-md-4 project-item" data-category="coding data-cleansing data-visualization">
+        <div class="card h-100">
+          <img src="img/london.png" class="card-img-top" alt="London Bike Sharing Dashboard">
+          <div class="card-body">
+            <h5 class="card-title">London Bike Sharing Analysis</h5>
+            <p class="card-text">Cleaned bike-sharing data and created interactive insights using Python and Tableau.</p>
+            <a href="projects/londonbike_data_viz.html" class="btn btn-sm learn-more-btn">Learn More</a>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Contact Me</h2>
+
+    <div id="success-popup" class="alert alert-success text-center" style="display: none;">
+      ✅ Message sent successfully!
+    </div>
+    <div id="error-popup" class="alert alert-danger text-center" style="display: none;">
+      ❌ Error sending message. Please try again.
+    </div>
+    <div id="loading-popup" class="alert alert-info text-center" style="display: none;">
+      ⏳ Sending message...
+    </div>
+
+    <form action="https://formsubmit.co/justinlee61@hotmail.com" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name" class="form-control custom-input" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" id="email" class="form-control custom-input" required>
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message</label>
+        <textarea name="message" id="message" rows="5" class="form-control custom-input" required></textarea>
+      </div>
+    
+      <!-- Optional hidden fields -->
+      <input type="hidden" name="_subject" value="New message from portfolio site">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+    
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value": 80, "density": { "enable": true, "value_area": 800 }},
+    "color": { "value": "#cccccc" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.4 },
+    "size": { "value": 3, "random": true },
+    "line_linked": { "enable": true, "distance": 150, "color": "#cccccc", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": {
+    "events": {
+      "onhover": { "enable": true, "mode": "repulse" },
+      "onclick": { "enable": true, "mode": "push" }
+    }
+  },
+  "retina_detect": true
+});
+</script>
+</body>
+</html>

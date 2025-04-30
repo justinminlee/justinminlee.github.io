@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloud Hosting Web App | Justin Lee</title>
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-light bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">← Justin Lee</a>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container" style="margin-top:100px;">
+  <h1 class="mb-4">Cloud Hosting Web App</h1>
+
+  <p><strong>Project Overview:</strong></p>
+  <p>
+    This file compressor web application was developed for the Cloud Computing Project. 
+    Users can upload files via a browser interface, which are then compressed server-side and made available for download.
+    The system is fully containerised using Docker and built for scalable deployment on AWS. Redis is used to manage temporary storage and job queueing.
+  </p>
+
+  <p><strong>Technologies Used:</strong></p>
+  <ul>
+    <li>Node.js + Express (Backend)</li>
+    <li>Redis (In-memory cache for jobs & results)</li>
+    <li>HTML, CSS, JavaScript (Frontend)</li>
+    <li>Docker & Docker Compose (Containerisation)</li>
+    <li>AWS (Cloud deployment via EC2 or ECS)</li>
+    <li>Multer (File uploads)</li>
+  </ul>
+
+  <p><strong>Key Features:</strong></p>
+  <ul>
+    <li>Users upload files and receive compressed versions</li>
+    <li>Dockerised microservices architecture with volume isolation</li>
+    <li>Redis handles job tracking and real-time updates</li>
+    <li>Server processes run in isolated containers</li>
+    <li>Scalable cloud deployment using AWS infrastructure</li>
+  </ul>
+
+  <p>
+    <a href="https://github.com/justinminlee/CloudProject" target="_blank">🔗 View Source Code on GitHub</a><br>
+  </p>
+</main>
+
+<!-- Footer -->
+<footer class="text-center py-4 small bg-light mt-5">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

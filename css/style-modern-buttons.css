@@ -1,0 +1,141 @@
+
+/* ============= GLOBAL ============= */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============= BUTTONS ============= */
+button, .btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 1.5px solid #6366F1;
+  color: #6366F1;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover, .btn:hover {
+  background-color: #6366F1;
+  color: white;
+  text-decoration: none;
+  border-color: #6366F1;
+}
+
+/* Active Filter Tag */
+#project-filters .btn.active {
+  background-color: #22d0ef;
+  color: white;
+}
+
+/* Primary Button (e.g. Send) */
+button.btn.btn-primary {
+  background-color: #1F2937 !important;  /* Neutral dark grey (almost black) */
+  color: white !important;
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border: none;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  line-height: 1.5;
+}
+
+button.btn.btn-primary:hover {
+  background-color: #111827 !important;  /* Even darker on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+button.btn.btn-primary:active {
+  background-color: #111827 !important;  /* Keep the same color on active */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
+}
+
+button.btn.btn-primary:hover {
+  background-color: #111827 !important;  /* Even darker on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Tag Filter Wrapper */
+#project-filters {
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+/* ============= CARD STYLING ============= */
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Modern Learn More Button */
+.learn-more-btn {
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border: 1.5px solid #6366F1;      /* Indigo border */
+  border-radius: 8px;
+  color: #6366F1;
+  background-color: #ffffff;        /* White background for strong contrast */
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 0 0 1px #e5e7eb inset; /* Soft inset border for modern look */
+}
+
+.learn-more-btn:hover {
+  background-color: #6366F1;
+  color: #ffffff;
+  border-color: #6366F1;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.2);
+  text-decoration: none;
+}
+.learn-more-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.5);
+}
+.learn-more-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
+.learn-more-btn:disabled {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.learn-more-btn:disabled:hover {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+  border-color: #d1d5db;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.learn-more-btn:disabled:focus {
+  outline: none;
+  box-shadow: none;
+}
+.learn-more-btn:disabled:active {
+  transform: none;
+  box-shadow: none;
+}
+.learn-more-btn:disabled:focus-visible {
+  outline: none;
+  box-shadow: none;
+} 
