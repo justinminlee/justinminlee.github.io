@@ -235,4 +235,40 @@
     padding: 12px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
-  
+  /* Custom Navbar Toggler */
+  .custom-toggler {
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 16px;
+    padding: 10px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Icon lines */
+  .menu-icon,
+  .menu-icon::before,
+  .menu-icon::after {
+    display: block;
+    content: "";
+    background-color: #111;
+    height: 3px;
+    width: 24px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .menu-icon::before {
+    position: absolute;
+    top: -8px;
+  }
+
+  .menu-icon::after {
+    position: absolute;
+    top: 8px;
+  }
+
