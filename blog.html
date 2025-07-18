@@ -19,145 +19,146 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        <li>
+          <a class="nav-link" href="file/JustinleeCV.pdf" download="JustinLee_CV.pdf">Resume</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Layoff Data Cleansing -->
-<div class="col-md-4 project-item" data-category="coding data-cleansing">
-  <div class="card h-100">
-    <img src="img/projects/mysql.png" class="card-img-top" alt="Layoff Data Cleansing">
-    <div class="card-body">
-      <h5 class="card-title">Layoff Data Cleansing</h5>
-      <p class="card-text">Cleaned and standardised global layoff data using MySQL—deduplication, nulls, aggregation.</p>
-      <a href="projects/layoff_cleaning.html" class="btn btn-sm learn-more-btn">Learn More</a>
-    </div>
-  </div>
-</div>
+<main class="container py-5" style="margin-top: 100px;">
+  <h1 class="text-center mb-4 fw-bold">📘 Blog Posts</h1>
+  <p class="text-center text-muted mb-5">Personal insights on data science, automation, deployment, and development.</p>
 
-<!-- Recipe Search Web App -->
-<div class="col-md-4 project-item" data-category="api cloud-computing coding">
-  <div class="card h-100">
-    <img src="img/projects/recipe_project.png" class="card-img-top" alt="Recipe Search Web App">
-    <div class="card-body">
-      <h5 class="card-title">Recipe Search Web App</h5>
-      <p class="card-text">Search recipes via Spoonacular API & display YouTube cooking videos; Dockerised for easy deployment.</p>
-      <a href="projects/recipe_webapp.html" class="btn btn-sm learn-more-btn">Learn More</a>
-    </div>
-  </div>
-</div>
+  <div class="row g-4">
 
-<!-- Blockchain ETL Pipeline -->
-<div class="col-md-4 project-item" data-category="blockchain coding etl data-cleansing">
-  <div class="card h-100">
-    <img src="img/projects/blockchain.png" class="card-img-top" alt="Blockchain ETL Pipeline">
-    <div class="card-body">
-      <h5 class="card-title">Blockchain ETL Pipeline</h5>
-      <p class="card-text">Extracted Ethereum transactions via Bitquery API, transformed and loaded into PostgreSQL for analysis.</p>
-      <a href="projects/blockchain_etl.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🤖 Building My AutoML App</h5>
+          <p class="text-muted small mb-2">July 2025 · Streamlit · PyCaret · ETL</p>
+          <p class="card-text">Behind the scenes of developing my AutoML Web App using Streamlit and PyCaret with no-code UI.</p>
+          <a href="blog/automl_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- AI Flashcard Generator -->
-<div class="col-md-4 project-item" data-category="machine-learning api coding">
-  <div class="card h-100">
-    <img src="img/projects/flashcard.png" class="card-img-top" alt="AI Flashcard Generator">
-    <div class="card-body">
-      <h5 class="card-title">AI Flashcard Generator</h5>
-      <p class="card-text">Full‑stack app with React, Node.js, MySQL & OpenAI API to generate study flashcards from text.</p>
-      <a href="projects/flashcard.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🤖 AI Flashcard Generator</h5>
+          <p class="text-muted small mb-2">June 2025 · ReactJS · OpenAI API · MySQL</p>
+          <p class="card-text">How I created an AI-powered flashcard generator using OpenAI API and a modern React + Express full-stack setup.</p>
+          <a href="blog/flashcard_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- AutoML Web Application -->
-<div class="col-md-4 project-item" data-category="machine-learning coding etl">
-  <div class="card h-100">
-    <img src="img/projects/Auto_ML.png" class="card-img-top" alt="AutoML Web Application">
-    <div class="card-body">
-      <h5 class="card-title">AutoML Web Application</h5>
-      <p class="card-text">Built a no-code UI with Streamlit and PyCaret to train and deploy ML models automatically.</p>
-      <a href="projects/automl.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">📦 Blockchain ETL Pipeline</h5>
+          <p class="text-muted small mb-2">March 2025 · Bitquery · PostgreSQL · Python</p>
+          <p class="card-text">Built an ETL pipeline extracting and transforming blockchain trading data into structured PostgreSQL tables.</p>
+          <a href="blog/blockchain_etl.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Stock Market Prediction -->
-<div class="col-md-4 project-item" data-category="machine-learning coding etl">
-  <div class="card h-100">
-    <img src="img/projects/market_prediction.png" class="card-img-top" alt="Stock Market Prediction">
-    <div class="card-body">
-      <h5 class="card-title">Stock Market Prediction</h5>
-      <p class="card-text">Used SP500 data, engineered trend features and trained a Random Forest classifier in Python.</p>
-      <a href="projects/stock_prediction.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 4 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">📉 Stock Market Direction Prediction</h5>
+          <p class="text-muted small mb-2">June 2025 · Random Forest · Time Series</p>
+          <p class="card-text">Developed a model to predict S&P 500 directional movement using engineered financial features and classification.</p>
+          <a href="blog/stockmarket_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- MongoDB JSON Transformation -->
-<div class="col-md-4 project-item" data-category="coding data-cleansing">
-  <div class="card h-100">
-    <img src="img/projects/mongodb.png" class="card-img-top" alt="MongoDB JSON Transformation">
-    <div class="card-body">
-      <h5 class="card-title">MongoDB Transformation Project</h5>
-      <p class="card-text">Transformed and cleansed JSON-formatted datasets before ingestion into MongoDB collections.</p>
-      <a href="projects/mongodb_proj.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 5 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🧹 Cleaning Layoff Data with SQL</h5>
+          <p class="text-muted small mb-2">May 2025 · MySQL · Data Cleansing</p>
+          <p class="card-text">Explored data issues, handled inconsistencies, and created features from messy CSVs during data cleansing.</p>
+          <a href="blog/layoff_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- University Scraper -->
-<div class="col-md-4 project-item" data-category="web-scraping coding">
-  <div class="card h-100">
-    <img src="img/projects/Scraper.png" class="card-img-top" alt="University Admission Scraper">
-    <div class="card-body">
-      <h5 class="card-title">University Scraper</h5>
-      <p class="card-text">Python scraper to extract ATAR, degree names, and entry thresholds from Australian uni websites.</p>
-      <a href="projects/uni_scraper.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 6 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🍳 Recipe Search App</h5>
+          <p class="text-muted small mb-2">June 2025 · Docker · Spoonacular API · React</p>
+          <p class="card-text">A full-stack app that recommends recipes with YouTube videos, powered by Docker and the Spoonacular API.</p>
+          <a href="blog/recipe_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Cloud Hosting Project -->
-<div class="col-md-4 project-item" data-category="cloud-computing api coding">
-  <div class="card h-100">
-    <img src="img/projects/cloud_project.png" class="card-img-top" alt="Cloud Hosting Project">
-    <div class="card-body">
-      <h5 class="card-title">Cloud Hosting Project</h5>
-      <p class="card-text">Deployed a Dockerised file compressor on AWS using Redis for caching and queue handling.</p>
-      <a href="projects/cloud_project.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 7 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🏫 University Web Scraper</h5>
+          <p class="text-muted small mb-2">May 2025 · Python · Web Scraping</p>
+          <p class="card-text">Used BeautifulSoup and requests to collect ATAR and degree info from multiple university sites.</p>
+          <a href="blog/university_scraper.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- London Bike Sharing Analysis -->
-<div class="col-md-4 project-item" data-category="data-visualization coding etl">
-  <div class="card h-100">
-    <img src="img/projects/london.png" class="card-img-top" alt="London Bike Sharing Analysis">
-    <div class="card-body">
-      <h5 class="card-title">London Bike Sharing Analysis</h5>
-      <p class="card-text">Preprocessed bike-sharing data in Python and visualised trends via Tableau dashboard.</p>
-      <a href="projects/londonbike_data_viz.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 8 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🌐 Cloud Hosting Project</h5>
+          <p class="text-muted small mb-2">June 2025 · AWS · Docker · Redis</p>
+          <p class="card-text">Deployed a backend API and frontend with Redis cache and Docker containers on AWS EC2.</p>
+          <a href="blog/cloud_hosting_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- Healthcare AIHW ETL Pipeline -->
-<div class="col-md-4 project-item" data-category="etl data-visualization coding">
-  <div class="card h-100">
-    <img src="img/projects/aihw_etl_thumb.png" class="card-img-top" alt="AIHW ETL Pipeline">
-    <div class="card-body">
-      <h5 class="card-title">AIHW ETL Pipeline</h5>
-      <p class="card-text">Automated scraping of AIHW data into PostgreSQL and served with interactive Streamlit dashboard.</p>
-      <a href="projects/aihw_etl.html" class="btn btn-sm learn-more-btn">Learn More</a>
+    <!-- Blog Post Card 9 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">📊 London Bike Sharing Analysis</h5>
+          <p class="text-muted small mb-2">April 2025 · Tableau · Python</p>
+          <p class="card-text">Analysed cycling patterns in London with preprocessing in Python and interactive dashboards in Tableau.</p>
+          <a href="blog/bike_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
     </div>
+
+    <!-- Blog Post Card 10 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">🏥 Healthcare AIHW ETL & Viz</h5>
+          <p class="text-muted small mb-2">July 2025 · Streamlit · Web Scraping</p>
+          <p class="card-text">Scraped health data from AIHW, performed wrangling and built Streamlit visualisation dashboards.</p>
+          <a href="blog/health_etl_blog.html" class="btn btn-sm btn-dark rounded-pill">Read More</a>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+</main>
+
 
 
 <footer class="text-center py-4 small bg-light mt-5">
