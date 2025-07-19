@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Flashcard Web App | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🧠 AI Flashcard Generator</h1>
+  <p class="text-muted">April 2025 · React · Node.js · OpenAI API</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project is an AI-powered web application that turns PDFs into Anki-style flashcards using the OpenAI API. The goal was to automate the study process by generating effective questions and answers following cognitive learning principles, including the Minimum Information Principle.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Frontend</strong>: Built using <code>React</code> for a responsive UI. Users can upload a PDF, enter their email, and view/download flashcards.</li>
+    <li><strong>Backend</strong>: Node.js and Express handle PDF parsing with <code>pdf-parse</code>, and prompt engineering for GPT-4 request formatting.</li>
+    <li><strong>Flashcard Prompting</strong>: Carefully engineered prompts instruct GPT-4 to extract concepts and generate questions adhering to the Minimum Information Principle.</li>
+    <li><strong>Email Delivery</strong>: Integrated with EmailJS to send flashcards directly to the user’s inbox.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Drag-and-drop PDF upload interface</li>
+    <li>Multiple-choice, cloze, and basic Q&A card generation</li>
+    <li>PDF summarisation for contextual understanding</li>
+    <li>Send cards directly to user via email</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>OpenAI API context length exceeded – resolved by chunking PDF content into batches with semantic breaks.</li>
+    <li>EmailJS failed to send attachments on some clients – used fallback links to online previews of the flashcards.</li>
+    <li>Misinterpreted text in scanned PDFs – improved PDF parsing logic with OCR fallback (planned).</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>Effective prompt design directly impacts the quality of AI-generated content.</li>
+    <li>Combining GPT with React and Express results in seamless AI-driven user experiences.</li>
+    <li>There's strong potential for academic tools that bridge AI and user interactivity.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/flashcard-ai-webapp" target="_blank">GitHub Repo: AI Flashcard Web App</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

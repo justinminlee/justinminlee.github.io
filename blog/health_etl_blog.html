@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare AIHW ETL & Visualisation | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🏥 Healthcare AIHW ETL & Visualisation</h1>
+  <p class="text-muted">July 2025 · Web Scraping · Streamlit · Data Visualisation</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project focused on automating the extraction, transformation, and visualisation of healthcare-related statistics published by the Australian Institute of Health and Welfare (AIHW). The goal was to enable quick, dynamic insights into key health metrics using an interactive Streamlit app.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Web Scraping</strong>: Used <code>requests</code> and <code>BeautifulSoup</code> to scrape Excel data from the AIHW site, filtering out outdated or broken links.</li>
+    <li><strong>Data Transformation</strong>: Parsed and standardised health indicators from Excel sheets using <code>pandas</code>, handling non-tabular formats and inconsistent headers.</li>
+    <li><strong>Data Cleaning</strong>: Merged time-series datasets across various categories (hospital, mental health, chronic disease), cleaned nulls, and renamed confusing column labels.</li>
+    <li><strong>Visualisation</strong>: Created a Streamlit app with dynamic dropdowns, trend charts (line/bar), and data export capabilities. Implemented responsive layout with <code>st.columns()</code>.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Automatic scraping of latest health reports from AIHW</li>
+    <li>Consolidation of multiple Excel sources into unified tables</li>
+    <li>Interactive data exploration by year, topic, or region</li>
+    <li>Built-in download option for cleaned data</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Encountered inconsistent Excel layouts – fixed by detecting header rows dynamically with <code>openpyxl</code> fallbacks.</li>
+    <li>Streamlit caching bugs with file download – resolved using <code>@st.cache_data</code> and unique filenames for downloads.</li>
+    <li>Broken URLs due to website update – added regex validation and fallback logic to skip invalid links.</li>
+  </ul>
+
+  <h4>📊 Key Takeaways</h4>
+  <ul>
+    <li>Automating data sourcing can drastically speed up reporting workflows.</li>
+    <li>Handling real-world healthcare data requires flexible and robust preprocessing logic.</li>
+    <li>Streamlit enables rapid visual insight development without frontend overhead.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/healthcare-AIHW-ETL-pipeline" target="_blank">GitHub Repo: Healthcare AIHW ETL</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

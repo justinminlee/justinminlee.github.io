@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoML Web App Blog | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🤖 Building My AutoML Web App</h1>
+  <p class="text-muted">July 2025 · Streamlit · PyCaret · ETL</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project involved building a fully interactive AutoML web app using <strong>Streamlit</strong> and <strong>PyCaret</strong>. The app allows users to upload datasets (CSV), select the target variable, and automatically trains multiple models, ranks them by accuracy, and visualises key results. I also incorporated automatic Exploratory Data Analysis (EDA) and performance metrics generation.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>ETL Process</strong>: Handled file uploads and used <code>pandas</code> to clean and pre-process data automatically based on data types (categorical vs numerical).</li>
+    <li><strong>EDA</strong>: Integrated <code>Sweetviz</code> and <code>Pandas Profiling</code> to generate EDA reports from uploaded data.</li>
+    <li><strong>Model Training</strong>: Used PyCaret’s <code>setup()</code> and <code>compare_models()</code> to quickly evaluate several algorithms like Random Forest, LightGBM, XGBoost.</li>
+    <li><strong>Model Insights</strong>: Integrated SHAP (SHapley Additive exPlanations) visualisations for interpretability.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Upload your own CSV dataset</li>
+    <li>Select target column dynamically</li>
+    <li>Automatic model comparison and leaderboard</li>
+    <li>Download model pipeline</li>
+    <li>View performance metrics and SHAP visualisations</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>File upload caused <code>UnicodeDecodeError</code> due to non-UTF-8 files – resolved using <code>chardet</code> for encoding detection.</li>
+    <li>SHAP plots wouldn’t render in Streamlit – resolved by saving plots as images and displaying with <code>st.image</code>.</li>
+    <li>PyCaret’s dependency conflicts – resolved using isolated virtual environments.</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>Streamlit is an incredibly effective tool for building lightweight, interactive data apps fast.</li>
+    <li>PyCaret provides an accessible way to bring AutoML capabilities without complex tuning.</li>
+    <li>User-friendly design and clear error messages matter a lot in data tool usability.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/automl_web_app" target="_blank">GitHub Repo: AutoML Web App</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

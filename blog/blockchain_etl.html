@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain ETL Pipeline | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🧾 Blockchain ETL Pipeline</h1>
+  <p class="text-muted">March 2025 · PostgreSQL · Bitquery · Python</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project automates the extraction, transformation, and loading (ETL) of blockchain transaction data using the Bitquery API. It focuses on crypto trade data and stores cleaned results into a PostgreSQL database for further analysis. The goal was to build a reusable data pipeline for historical and real-time blockchain analytics.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Extraction</strong>: Queried the Bitquery GraphQL API using Python to fetch token trade data for selected time windows.</li>
+    <li><strong>Transformation</strong>: Normalised JSON responses using <code>pandas</code>, parsed timestamps, selected relevant fields (e.g. token name, amount, value, sender/receiver), and handled missing/nulls.</li>
+    <li><strong>Loading</strong>: Connected to a local PostgreSQL instance using <code>SQLAlchemy</code> and inserted transformed data into custom schema tables.</li>
+    <li><strong>Automation</strong>: Designed for both batch loading (historical backfill) and near real-time streaming for future cron jobs.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Supports flexible API date range queries and token filters</li>
+    <li>Modular ETL functions for easy reuse and testing</li>
+    <li>Connection pooling for efficient PostgreSQL insertions</li>
+    <li>Simple CLI interface for custom token loading</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Rate-limiting on Bitquery API – implemented exponential backoff and retry logic.</li>
+    <li>PostgreSQL schema mismatches – enforced data type casting and schema validation pre-load.</li>
+    <li>Timestamp inconsistency – used UTC conversions and ISO format validation for ingestion consistency.</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>APIs with rate limits require robust retry strategies for production pipelines.</li>
+    <li>ETL structure benefits greatly from modularisation and logging at each stage.</li>
+    <li>This pipeline can be expanded to support multiple blockchains and used for crypto dashboards or alerts.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/blockchain-etl-pipeline" target="_blank">GitHub Repo: Blockchain ETL Pipeline</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>
