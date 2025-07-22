@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB JSON Project | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🍃 MongoDB JSON Project</h1>
+  <p class="text-muted">March 2023 · MongoDB · JSON Data · Aggregation</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project consisted of two separate JSON-based mini projects designed to showcase MongoDB’s strengths in handling semi-structured data. Each project used real-world-style JSON documents to demonstrate filtering, aggregation, and indexing techniques using MongoDB’s query language.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Data Ingestion</strong>: Imported JSON files using <code>mongoimport</code> into local MongoDB collections for both <code>proj1</code> and <code>proj2</code>.</li>
+    <li><strong>Querying</strong>: Wrote and executed MongoDB queries using <code>find()</code>, projection, sorting, and nested field access to extract meaningful subsets of data.</li>
+    <li><strong>Aggregation</strong>: Applied <code>$group</code>, <code>$match</code>, <code>$project</code>, and <code>$unwind</code> stages to compute derived insights like averages and grouped statistics.</li>
+    <li><strong>Indexing</strong>: Tested performance improvements by applying indexes to frequent query fields and measured latency before and after.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Handled deeply nested JSON documents with MongoDB’s dot notation</li>
+    <li>Wrote aggregation pipelines to analyse and transform the data</li>
+    <li>Split projects into modular, reproducible queries for future testing</li>
+    <li>Explored real-world business-style document structures</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Encountered schema inconsistencies between records – resolved by using <code>$exists</code> and <code>$ifNull</code> to ensure uniform aggregation.</li>
+    <li>Initial import failed due to malformed JSON array – corrected by enclosing records with brackets and commas.</li>
+    <li>Nested fields caused filter mismatches – fixed by mapping exact dot notation path and avoiding array position assumptions.</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>MongoDB excels at managing complex, nested JSON data without the need for rigid schemas.</li>
+    <li>Aggregation pipelines offer powerful analytics capabilities beyond basic document retrieval.</li>
+    <li>Proper indexing and projection are critical for optimising performance on large document sets.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/mongodb_proj-1-2" target="_blank">GitHub Repo: MongoDB JSON Projects</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>
