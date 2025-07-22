@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Degree Web Scraper | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🏫 University Degree Web Scraper</h1>
+  <p class="text-muted">February 2025 · Python · BeautifulSoup · Data Pipeline</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project involved building a Python-based web scraper to collect undergraduate course information from Australian university websites. The goal was to automate the process of retrieving ATAR cut-offs, course titles, codes, faculties, locations, and links to course pages—allowing quick comparison and analysis for education consulting purposes.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Target Sites</strong>: Focused on university degree listings such as UQ, QUT, Griffith, UNSW, and USYD.</li>
+    <li><strong>Scraping Logic</strong>: Used <code>requests</code> and <code>BeautifulSoup</code> to locate and parse HTML content. Extracted course blocks, filtered degree programs, and avoided non-undergraduate offerings.</li>
+    <li><strong>Data Structuring</strong>: Normalised course information into structured dictionaries, handled nested HTML elements, and cleaned inconsistent formatting (e.g., whitespace, abbreviations).</li>
+    <li><strong>Output</strong>: Exported the full dataset into CSV format for integration with Airtable and Excel ATAR calculator pipeline.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Accurate scraping of course title, ATAR, faculty, degree length, location, and web link</li>
+    <li>Handles inconsistent markup across different university websites</li>
+    <li>Batch scraping and CSV export functionality</li>
+    <li>Designed for integration with downstream consulting tools</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Frequent changes in HTML structure – added CSS selector fallbacks and error logging to adapt quickly</li>
+    <li>Redirects and duplicate entries – resolved by filtering URL patterns and caching visited links</li>
+    <li>Encoding issues in CSV output – enforced UTF-8 encoding and validated with Excel</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>Web scraping is highly dependent on site stability—robust error handling is essential</li>
+    <li>Cleaned, structured datasets from raw HTML are valuable for decision support systems</li>
+    <li>This scraper supports education consultants in giving personalised, accurate advice</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/university-degree-scraper" target="_blank">GitHub Repo: University Degree Web Scraper</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

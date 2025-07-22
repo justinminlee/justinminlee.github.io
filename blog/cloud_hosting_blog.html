@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Hosting & Deployment | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">☁️ Cloud Hosting & Deployment</h1>
+  <p class="text-muted">June 2025 · AWS · Docker · Redis</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project involved deploying a multi-service web application on AWS using Docker and Nginx, incorporating Redis caching. The goal was to understand production-level deployment infrastructure and ensure efficient scalability, reliability, and portability for a full-stack app.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Dockerisation</strong>: Containerised the Node.js backend and React frontend services, and used a Redis container for caching.</li>
+    <li><strong>Docker Compose</strong>: Configured Compose files to orchestrate multi-container setup with shared network and volumes.</li>
+    <li><strong>Nginx</strong>: Used Nginx as a reverse proxy to route requests and handle SSL termination.</li>
+    <li><strong>AWS EC2</strong>: Deployed containers on a t3.micro instance running Ubuntu. Installed Docker and ran the project using scripts.</li>
+    <li><strong>Health Checks & Logging</strong>: Added basic endpoint checks and logging to monitor uptime and error tracking.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Redis caching for speed optimisation</li>
+    <li>Docker Compose for consistent local & cloud deployment</li>
+    <li>SSL configuration and secure routing using Nginx</li>
+    <li>Systemd service to ensure auto-start of containers on reboot</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li><code>ECONNREFUSED</code> errors between services – resolved by using Docker service names as hostnames.</li>
+    <li>Redis container not persisting data – added a volume mount for Redis data.</li>
+    <li>Permissions issues on EC2 startup – added permission and user checks in shell scripts.</li>
+  </ul>
+
+  <h4>📊 Key Takeaways</h4>
+  <ul>
+    <li>Cloud hosting requires attention to small configuration details that differ between dev and prod environments.</li>
+    <li>Docker Compose simplifies orchestration and helps manage microservices.</li>
+    <li>Using Redis boosted performance, and adding Nginx enhanced security and control over routing.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/CloudProject" target="_blank">GitHub Repo: Cloud Hosting Project</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

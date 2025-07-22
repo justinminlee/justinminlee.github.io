@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>London Bike Sharing Analysis | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">🚲 London Bike Sharing Analysis</h1>
+  <p class="text-muted">April 2025 · Python · Tableau · Data Visualisation</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project focused on understanding usage patterns and demand drivers of London bike-sharing data. Using a combination of Python and Tableau, I analysed user behaviour over time, weather conditions, and bike rental volumes to produce an interactive dashboard for deeper insights.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Data Cleaning</strong>: Removed nulls and anomalies (e.g. unrealistic wind speeds or user counts).</li>
+    <li><strong>Feature Engineering</strong>: Extracted day-of-week, hour, and weather categories. Added rolling averages to smooth seasonal trends.</li>
+    <li><strong>Visualisation</strong>: Developed a Tableau dashboard with time series plots, weather vs usage heatmaps, and hourly demand bar charts.</li>
+    <li><strong>Statistical Modelling</strong>: Applied correlation and regression analysis to identify factors affecting rental volumes.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Dashboard with drill-down by month, day, and hour</li>
+    <li>Interactive filters for weather and holiday indicators</li>
+    <li>Dynamic tooltips and hover explanations for accessibility</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Missing weather readings – interpolated using linear approximation.</li>
+    <li>Misaligned timestamps between features – resolved by converting all time series into consistent hourly UTC format.</li>
+    <li>Data export to Tableau not recognising types – fixed with enforced <code>float64</code> and <code>datetime</code> types in Python.</li>
+  </ul>
+
+  <h4>📈 Key Takeaways</h4>
+  <ul>
+    <li>Weather conditions (especially temperature and humidity) strongly influence bike demand.</li>
+    <li>Usage peaks around commuting hours and drops significantly on weekends and public holidays.</li>
+    <li>Tableau is ideal for stakeholder-facing visualisation, while Python is excellent for preprocessing and modelling.</li>
+  </ul>
+
+  <h4>🔗 Repository & Dashboard</h4>
+  <p>
+    <a href="https://github.com/justinminlee/python-tableau-data-viz" target="_blank">GitHub Repo: London Bike Sharing</a><br>
+    <a href="https://public.tableau.com/app/profile/minjae.lee3401/viz/LondonBike_17406041798200/LD_Dashboard" target="_blank">Tableau Dashboard</a>
+  </p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Market Prediction | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-4">📈 Stock Market Prediction</h1>
+  <p class="text-muted">February 2025 · Python · Scikit-learn · Random Forest</p>
+
+  <hr class="my-4">
+
+  <h4>🔍 Project Overview</h4>
+  <p>This project focused on predicting the direction (up or down) of the S&amp;P 500 index using engineered time-series features and a machine learning classification model. I aimed to test whether simple lag-based technical features could provide a reliable prediction signal for short-term market trends.</p>
+
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Data Source</strong>: Used Yahoo Finance to download historical S&amp;P 500 index data.</li>
+    <li><strong>Feature Engineering</strong>: Created lag features (previous close, returns, 5-day/10-day moving averages, volatility windows).</li>
+    <li><strong>Label Creation</strong>: Binary classification target set to 1 if the next day's close was higher than current day's close.</li>
+    <li><strong>Modeling</strong>: Trained a <code>RandomForestClassifier</code> from Scikit-learn and evaluated accuracy, precision, recall, and AUC-ROC.</li>
+  </ul>
+
+  <h4>💡 Features</h4>
+  <ul>
+    <li>Lag-based time series features (rolling mean, std deviation)</li>
+    <li>Binary classification of next-day market movement</li>
+    <li>Train/test split respecting time order</li>
+    <li>ROC curve and confusion matrix visualisation</li>
+  </ul>
+
+  <h4>📉 Errors & Fixes</h4>
+  <ul>
+    <li>Initially used regular random split, which leaked future information – fixed with time-aware train/test splitting.</li>
+    <li>Low precision due to imbalanced up/down distribution – experimented with threshold tuning and precision-recall analysis.</li>
+    <li>Overfitting on early models – mitigated by limiting tree depth and adjusting <code>min_samples_leaf</code>.</li>
+  </ul>
+
+  <h4>📊 Key Takeaways</h4>
+  <ul>
+    <li>Feature engineering from raw financial time series is critical to improve model signal.</li>
+    <li>Market prediction is inherently noisy, so robust evaluation and realistic splitting are essential.</li>
+    <li>Binary prediction (up/down) is more interpretable and often more useful than point forecasts.</li>
+  </ul>
+
+  <h4>🔗 Repository</h4>
+  <p><a href="https://github.com/justinminlee/stock-market-prediction" target="_blank">GitHub Repo: Stock Market Prediction</a></p>
+
+  <hr class="my-4">
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>
