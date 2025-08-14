@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Telecom Churn Prediction (End-to-End ML) | Justin Lee</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container py-5" style="max-width: 800px;">
+  <h1 class="fw-bold mb-2">📉 Telecom Customer Churn — End-to-End ML with Streamlit</h1>
+  <p class="text-muted">August 2025 · Classification · Streamlit · SHAP · MLOps</p>
+
+  <hr class="my-4"/>
+
+  <!-- Overview -->
+  <h4>🔍 Project Overview</h4>
+  <p>
+    This project delivers a production-style churn prediction workflow on the IBM Telco dataset. I built a fully reproducible pipeline spanning data acquisition, preprocessing & feature engineering, model selection, evaluation with cost–benefit analysis, interpretability with SHAP, and a Streamlit app for batch scoring and an interactive “churn probability” calculator.
+  </p>
+
+  <!-- Methodology -->
+  <h4>⚙️ Methodology</h4>
+  <ul>
+    <li><strong>Data acquisition</strong>: Pulled the dataset from Kaggle using <code>kagglehub</code> and converted the provided <code>.xlsx</code> file to CSV for training.</li>
+    <li><strong>Data cleaning & normalization</strong>: Standardized headers (e.g., <em>Senior Citizen</em> → <code>SeniorCitizen</code>; <em>Tenure Months</em> → <code>tenure</code>), removed duplicate columns, coerced numeric fields (e.g., <code>TotalCharges</code>), and imputed missing values.</li>
+    <li><strong>Leakage control</strong>: Dropped target-derived columns (e.g., <code>ChurnScore</code>, <code>CustomerStatus</code>, <code>ChurnCategory</code>, <code>ChurnReason</code>) and non-actionable extras (e.g., <code>Country</code>, <code>State</code>, <code>City</code>, <code>Latitude</code>/<code>Longitude</code>, <code>CLTV</code>).</li>
+    <li><strong>Feature engineering</strong>:
+      <ul>
+        <li><code>contract_length_months</code> from <code>Contract</code> (Month-to-month/One year/Two year → 1/12/24)</li>
+        <li><code>is_electronic_check</code> flag from <code>PaymentMethod</code></li>
+        <li><code>has_tech_support</code> from <code>TechSupport</code></li>
+        <li><code>tenure_bucket</code> (bins) and <code>charges_per_tenure</code></li>
+      </ul>
+    </li>
+    <li><strong>Modeling</strong>: Compared Logistic Regression, Random Forest, and XGBoost with a shared preprocessing pipeline (<code>ColumnTransformer</code> = One-Hot for categoricals + StandardScaler for numerics).</li>
+    <li><strong>Evaluation</strong>: 5-fold CV with ROC-AUC & PR-AUC; profit-optimized threshold using margin, incentive, and outreach costs.</li>
+    <li><strong>Deployment</strong>: Streamlit app with three tabs—Batch scoring & metrics, Single-customer calculator, and SHAP explainability.</li>
+  </ul>
+
+  <!-- Results -->
+  <h4>🏁 Results</h4>
+  <p><strong>Cross-validated performance (after leakage fixes)</strong>:</p>
+  <ul>
+    <li>Logistic Regression — PR-AUC ≈ <strong>0.625</strong>, ROC-AUC ≈ <strong>0.837</strong></li>
+    <li>Random Forest — PR-AUC ≈ <strong>0.660</strong>, ROC-AUC ≈ <strong>0.852</strong></li>
+    <li><strong>XGBoost</strong> (selected) — PR-AUC ≈ <strong>0.662</strong>, ROC-AUC ≈ <strong>0.851</strong></li>
+  </ul>
+  <p>
+    The app computes a recommended operating threshold by maximizing expected profit:
+    <em>profit = TP × margin − (TP + FP) × (incentive + outreach)</em>.
+  </p>
+
+  <!-- Features -->
+  <h4>💡 App Features</h4>
+  <ul>
+    <li><strong>Batch scoring</strong>: Upload CSV/XLSX → predictions, PR-AUC/ROC-AUC (if <code>Churn</code> present), and “download scored CSV”.</li>
+    <li><strong>Probability calculator</strong>: Enter customer attributes → instant churn probability from the saved model.</li>
+    <li><strong>SHAP explainability</strong>: Global beeswarm plot with correct feature names using <code>pre.get_feature_names_out()</code>.</li>
+  </ul>
+
+  <!-- Architecture -->
+  <h4>🏗️ Repository & Architecture</h4>
+  <ul>
+    <li><code>src/features/build_features.py</code> — normalization, leakage drops, feature engineering, and preprocessing builder.</li>
+    <li><code>src/models/train.py</code> — 5-fold CV comparison, best-by-PR-AUC selection, model persistence with <code>joblib</code>.</li>
+    <li><code>src/models/predict.py</code> — production-safe prediction: normalizes inputs, adds any missing columns (Unknown/0), and sanitizes OHE categories.</li>
+    <li><code>app/Home.py</code> — Streamlit UI (batch, calculator, SHAP) using the saved <code>models/model.pkl</code>.</li>
+  </ul>
+
+  <!-- Repro -->
+  <h4>🧪 Reproducibility</h4>
+  <ol>
+    <li><strong>Create & use venv (avoid mixing with Anaconda)</strong>
+      <pre class="bg-light p-3 rounded"><code>python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip</code></pre>
+    </li>
+    <li><strong>Install dependencies</strong> (pin compatibility):
+      <pre class="bg-light p-3 rounded"><code>pip install -r requirements.txt
+pip install "altair&lt;5" "pyarrow==16.1.0" openpyxl</code></pre>
+    </li>
+    <li><strong>Download data</strong> with <code>kagglehub</code> and convert XLSX→CSV during ingest.</li>
+    <li><strong>Train</strong>:
+      <pre class="bg-light p-3 rounded"><code>python -m src.models.train --csv "data/raw/Telco-Customer-Churn.csv"</code></pre>
+    </li>
+    <li><strong>Run app</strong> (use the venv’s Python to avoid PATH issues):
+      <pre class="bg-light p-3 rounded"><code>python -m streamlit run app/Home.py</code></pre>
+    </li>
+  </ol>
+
+  <!-- Troubleshooting -->
+  <h4>🩺 Troubleshooting Log (what I hit & how I fixed it)</h4>
+
+  <h6 class="mt-3">1) <code>ImportError: attempted relative import with no known parent package</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: Running module directly with plain <code>python</code> from <code>src/</code>.</li>
+    <li><strong>Fix</strong>: Run as a module from repo root:
+      <pre class="bg-light p-3 rounded"><code>python -m src.models.train --csv "data/raw/..."</code></pre>
+    </li>
+  </ul>
+
+  <h6>2) <code>UnicodeDecodeError</code> when reading CSV</h6>
+  <ul>
+    <li><strong>Cause</strong>: Input was actually <code>.xlsx</code> or non-UTF8.</li>
+    <li><strong>Fix</strong>: Added a <em>read_any()</em> helper to support XLSX via <code>openpyxl</code> and CSV with fallback encodings.</li>
+  </ul>
+
+  <h6>3) Duplicate column names → <code>AttributeError: 'DataFrame' object has no attribute 'dtype'</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: Normalization produced duplicate headers (<code>df[c]</code> returned a DataFrame).</li>
+    <li><strong>Fix</strong>: Ensured unique names (suffix <code>__dup1</code>, <code>__dup2</code>) during normalization.</li>
+  </ul>
+
+  <h6>4) Perfect scores (PR-AUC/ROC-AUC ≈ 1.0) = leakage</h6>
+  <ul>
+    <li><strong>Cause</strong>: Churn-derived columns (<code>ChurnScore</code>/<code>CustomerStatus</code>/etc.) leaked the label.</li>
+    <li><strong>Fix</strong>: Dropped all churn-related fields except canonical target <code>Churn</code>; retrained to realistic metrics.</li>
+  </ul>
+
+  <h6>5) Streamlit launched from Anaconda, not venv → <code>ModuleNotFoundError: altair.vegalite.v4</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: PATH pointed to <code>/opt/anaconda3/bin/streamlit</code>.</li>
+    <li><strong>Fix</strong>: Run via venv explicitly and pin Altair v4:
+      <pre class="bg-light p-3 rounded"><code>source .venv/bin/activate
+python -m pip install "altair&lt;5"
+python -m streamlit run app/Home.py</code></pre>
+      <div class="small text-muted">Verified with <code>which streamlit</code> and <code>python -c "import sys,streamlit,altair; ..."</code></div>
+    </li>
+  </ul>
+
+  <h6>6) <code>pyarrow</code> build failed (no <code>cmake</code>)</h6>
+  <ul>
+    <li><strong>Fix</strong>: Install a prebuilt wheel and keep pins stable:
+      <pre class="bg-light p-3 rounded"><code>pip install --upgrade pip setuptools wheel
+pip uninstall -y pyarrow
+pip install "pyarrow==16.1.0" --only-binary=:all:</code></pre>
+    </li>
+  </ul>
+
+  <h6>7) App “single-customer” calculator → <code>columns are missing</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: Model expected columns not present in the form (e.g., geo fields, engineered features).</li>
+    <li><strong>Fix A (preferred)</strong>: Drop non-actionable fields during cleaning so the model never expects them.</li>
+    <li><strong>Fix B (quick)</strong>: In <code>predict.py</code>, auto-add missing categoricals as <em>“Unknown”</em> and numerics as <code>0</code>.</li>
+  </ul>
+
+  <h6>8) OHE + NaN → <code>TypeError: ufunc 'isnan' not supported</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: OneHotEncoder was fitted with NaNs inside <code>categories_</code>.</li>
+    <li><strong>Fix</strong>: Filled missing categoricals with <em>“Unknown”</em> <em>before</em> encoding and enforced <code>str</code> dtype; additionally sanitized the fitted encoder’s <code>categories_</code> at inference.</li>
+  </ul>
+
+  <h6>9) SHAP tab → <code>columns are missing</code></h6>
+  <ul>
+    <li><strong>Cause</strong>: Sent raw upload directly to the preprocessor.</li>
+    <li><strong>Fix</strong>: Ran <code>clean_columns(...)</code> on the uploaded data and ensured expected columns existed before <code>pre.transform</code>.</li>
+  </ul>
+
+  <h6>10) SHAP showed “Feature 1, 2, …” instead of names</h6>
+  <ul>
+    <li><strong>Cause</strong>: Passed a NumPy array without feature names to SHAP.</li>
+    <li><strong>Fix</strong>: Built names with <code>pre.get_feature_names_out()</code> and wrapped <code>Xt</code> into a named DataFrame.</li>
+  </ul>
+
+  <!-- Takeaways -->
+  <h4>📊 Key Takeaways</h4>
+  <ul>
+    <li>“Perfect” scores usually mean leakage—systematically audit features before celebrating.</li>
+    <li>Keep preprocessing identical between training and inference (same <code>clean_columns</code> everywhere).</li>
+    <li>Pin tricky packages (<code>altair&lt;5</code>, <code>pyarrow==16.1.0</code>) and always launch Streamlit from your venv.</li>
+    <li>Design UIs around <em>actionable</em> features; drop geography/CLTV unless you truly need them.</li>
+  </ul>
+
+  <!-- Repo -->
+  <h4>🔗 Repository</h4>
+  <p>
+    <a href="https://github.com/justinminlee/telco-churn-mlops" target="_blank">GitHub Repo: telco-churn-mlops</a>
+  </p>
+
+  <hr class="my-4"/>
+  <a href="../blog.html" class="btn btn-dark btn-sm rounded-pill">← Back to Blog</a>
+</div>
+
+</body>
+<footer class="text-center py-4 small bg-light">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>

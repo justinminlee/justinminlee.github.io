@@ -1,0 +1,56 @@
+
+---
+
+## 📰 3. HTML Blog Post
+
+I based this on the style and structure of your existing blog posts (via your GitHub Pages theme). Save as `_posts/2025-08-01-house-price-pipeline.html`:
+
+```html
+---
+layout: post
+title: "Building an End‑to‑End ETL & ML Pipeline for Australian House Price Forecasting"
+date: 2025-08-01
+categories: data-engineering machine-learning etl postgresql python
+---
+
+<p>In this post, I walk through building a full-stack project combining data engineering and machine learning to forecast house prices in Australia.</p>
+
+<h2>Project Overview</h2>
+<p><strong>Goal:</strong> Extract, transform, and load Australian house price time series into PostgreSQL, then train forecasting models and build a dashboard to visualize predictions.</p>
+<p><strong>Tech Stack:</strong> Python, Pandas, PostgreSQL, Prophet, XGBoost, Streamlit</p>
+
+<h2>Architecture</h2>
+<p>Here’s the system design:</p>
+<img src="/assets/images/house-price-etl-ml-pipeline.png" alt="Architecture Diagram" />
+
+<h2>Data Engineering: ETL Pipeline</h2>
+<p>I used the ABS Residential Property Price Indexes dataset, with historical median prices by capital city (quarterly data). It was downloaded and processed into a clean format.</p>
+<p><code>extract.py</code> loads the raw XLSX; <code>transform.py</code> cleans and feature-engineers the time series; <code>load.py</code> uploads everything into PostgreSQL.</p>
+
+<h2>Machine Learning</h2>
+<p>With clean data in PostgreSQL, I retrived it in Python for modeling:</p>
+<ul>
+  <li><strong>Prophet:</strong> Time-series forecasting per state or capital city.</li>
+  <li><strong>XGBoost:</strong> Regression using lag features, macro time-index variables.</li>
+</ul>
+
+<h2>Forecast Storage & Dashboard</h2>
+<p>Predictions from both models are stored in a <code>price_forecasts</code> table in PostgreSQL. Using Streamlit, I built an interactive dashboard to select state or suburb, view historical vs forecasted trends, and compare models.</p>
+
+<h2>Results & Key Learnings</h2>
+<ul>
+  <li>Built automated ETL pipeline with proper validation</li>
+  <li>Achieved accurate forecasts at both state and suburb levels</li>
+  <li>Learned end-to-end integration of engineering and ML workflow</li>
+</ul>
+
+<h2>Next Steps</h2>
+<ul>
+  <li>Automate ETL scheduling with Airflow or Prefect</li>
+  <li>Containerize components using Docker</li>
+  <li>Deploy database and UI to AWS (RDS, S3, Lambda/ECS)</li>
+  <li>Add CI/CD via GitHub Actions</li>
+</ul>
+
+<h2>Explore the Code</h2>
+<p>Check out the full repository on <a href="https://github.com/justinminlee">GitHub</a>.</p>

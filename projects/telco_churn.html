@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telecom Churn Prediction & Analysis</title>
+
+  <link href="../css/style.css" rel="stylesheet">
+  <link href="../css/style-modern-buttons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-light bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="../index.html">← Justin Lee</a>
+  </div>
+</nav>
+
+<div class="container" style="margin-top:100px;">
+
+  <h1 class="mb-3">📉 Telecom Customer Churn — End-to-End ML Pipeline</h1>
+  <p class="lead">Production-style churn prediction workflow with <strong>SHAP explainability</strong> and profit-driven evaluation.</p>
+
+  <img src="img/telco_churn_dashboard.png"
+       class="img-fluid rounded shadow-sm mb-4"
+       alt="Streamlit dashboard showing churn probability predictions">
+
+  <h2 class="h4 mt-4">Project Overview</h2>
+  <p>
+    Built on the IBM Telco dataset, this project delivers an end-to-end churn prediction system:
+    from <strong>data acquisition & cleaning</strong> through <strong>feature engineering</strong>, 
+    <strong>model selection & evaluation</strong>, to a <strong>Streamlit app deployment</strong>.
+    It incorporates leakage prevention, profit-optimized decision thresholds, and SHAP-based interpretability for actionable insights.
+  </p>
+
+  <h2 class="h4 mt-4">Key Features</h2>
+  <ul>
+    <li>Automated <strong>data preprocessing</strong> — normalization, duplicate removal, imputation, and leakage control.</li>
+    <li><strong>Feature engineering</strong> — e.g., <code>contract_length_months</code>, <code>is_electronic_check</code>, and tenure-based bins.</li>
+    <li><strong>Model comparison</strong> — Logistic Regression, Random Forest, XGBoost (selected for deployment).</li>
+    <li><strong>Profit-optimized threshold</strong> — uses outreach costs, incentives, and margins in evaluation.</li>
+    <li><strong>SHAP explainability</strong> — global and per-customer feature impact visualizations.</li>
+    <li><strong>Streamlit app</strong> — batch scoring, single-customer probability calculator, and SHAP insights.</li>
+  </ul>
+
+  <h2 class="h4 mt-4">Tech Stack ⚙️</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li>Python · <code>pandas</code>, <code>scikit-learn</code>, <code>xgboost</code>, <code>shap</code></li>
+        <li>Data ingestion via <code>kagglehub</code></li>
+        <li>Visualization: <code>matplotlib</code>, <code>Altair</code>, <code>Plotly</code></li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        <li>Deployment: <strong>Streamlit</strong></li>
+        <li>Model persistence: <code>joblib</code></li>
+        <li>Environment: <code>venv</code> (dependency pins for reproducibility)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="h4 mt-4">Try It Yourself</h2>
+  <pre><code>python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m src.models.train --csv "data/raw/Telco-Customer-Churn.csv"
+streamlit run app/Home.py
+</code></pre>
+
+  <p>
+    <a href="https://github.com/justinminlee/telco-churn-mlops" target="_blank">🔗 View Source Code on GitHub</a><br>
+    <a href="telco_churn_analysis.html" target="_blank">📊 See Full Analysis</a>
+  </p>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<footer class="text-center py-4 small bg-light mt-5">
+  <p>Email: <a href="mailto:justinlee61@hotmail.com">justinlee61@hotmail.com</a> | Phone: +61-412-550-307</p>
+  <p>&copy; 2025 Justin Lee</p>
+</footer>
+</html>
